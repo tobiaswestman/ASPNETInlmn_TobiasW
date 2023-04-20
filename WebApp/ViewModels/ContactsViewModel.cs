@@ -9,6 +9,9 @@ namespace WebApp.ViewModels
 
         [EmailAddress(ErrorMessage = "Not a valid email")]
         public string Email { get; set; } = null!;
+
+        //required?
+        [Required(ErrorMessage = "You must enter a comment")]
         public string Comment { get; set; } = null!;
     }
 }
