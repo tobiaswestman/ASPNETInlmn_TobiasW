@@ -4,10 +4,10 @@ namespace WebApp.ViewModels
 {
     public class LoginUserViewModel
     {
-        [Required(ErrorMessage = "Email field can't be blank")]
+        [Required(ErrorMessage = "You need to enter an Email")]
         public string Email { get; set; } = null!;
 
-        [Required (ErrorMessage = "Password field can't be blank")]
+        [Required (ErrorMessage = "You need to enter a password")]
         public string Password { get; set; } = null!;
     }
 }

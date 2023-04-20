@@ -4,10 +4,10 @@ namespace WebApp.ViewModels
 {
     public class ContactsViewModel
     {
-        [Required(ErrorMessage = "Name can't be blank")]
+        [Required(ErrorMessage = "You need to enter a name!")]
         public string Name { get; set; } = null!;
 
-        [EmailAddress(ErrorMessage = "Not a valid email")]
+        [EmailAddress(ErrorMessage = "You need to enter a valid Email adress")]
         public string Email { get; set; } = null!;
 
         //required?

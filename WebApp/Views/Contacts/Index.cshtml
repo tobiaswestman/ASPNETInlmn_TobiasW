@@ -5,13 +5,13 @@
 
 <div class="user-input-content">
 
-    <partial name="~/Views/Shared/Partials/_LocalPageNavPartial.cshtml" model="@ViewData["Title"]" />
+    <partial name="~/Views/Shared/Partials/_NavPath.cshtml" model="@ViewData["Title"]" />
 
-    <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d38737.841774879984!2d18.079359900244572!3d59.31780959501546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sse!4v1681596562094!5m2!1sen!2sse" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d65199.09847019675!2d18.02137071386719!3d59.29167680367588!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f78213511968d%3A0xfe0c9329d170106!2sJohanneshov%20Isstadion!5e0!3m2!1sen!2sse!4v1681829160845!5m2!1sen!2sse" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     <div class="container user-input-form">
 
-        <form asp-controller="Contact" asp-action="RegisterContact" method="post" novalidate>
+        <form asp-controller="Register" asp-action="Index" method="post" novalidate>
 
             <h6 class="user-input-title">Come in Contact with US</h6>
 

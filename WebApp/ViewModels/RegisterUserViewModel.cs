@@ -5,11 +5,11 @@ namespace WebApp.ViewModels
     public class RegisterUserViewModel
     {
       
-        [Required(ErrorMessage = "Firstname field can't be empty")]
+        [Required(ErrorMessage = "You need to enter a first name")]
         public string FirstName { get; set; } = null!;
 
 
-        [Required(ErrorMessage = "Lastname field can't be empty ")]
+        [Required(ErrorMessage = "You need to enter a last name ")]
         public string LastName { get; set; } = null!;
 
 
