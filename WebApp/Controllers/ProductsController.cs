@@ -9,13 +9,8 @@ public class ProductsController : Controller
         throw new NotImplementedException();
     }
 
-    public IActionResult Search()
-    {
-        throw new NotImplementedException();
-    }
-
     public IActionResult Details()
     {
-        throw new NotImplementedException();
+        return View();
     }
 }

@@ -74,10 +74,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Pages" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Include="wwwroot\css\site.scss" />
     </ItemGroup>
 

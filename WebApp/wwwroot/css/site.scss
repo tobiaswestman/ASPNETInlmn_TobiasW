@@ -562,6 +562,12 @@ header {
     cursor: pointer;
     background: #B2B2B2;
 }
+
+.footer-hr{
+    margin-bottom: 0;
+    
+}
+
 footer {
     background-color: $color-light-3;
     left: 0;
@@ -569,10 +575,11 @@ footer {
     width: 100%;
 }
 
-.footer-content {
+.footer-container {
     text-align: center;
     height: 100px;
-    margin-top: 25px;
+    margin-top: 0px;
+
 }
 
 .footer-icon {
@@ -743,6 +750,10 @@ footer {
 .user-input-item {
 }
 
+.user-input-link{
+    text-decoration: none;
+}
+
 .user-input {
     width: 100%;
     margin-top: 25px;
@@ -753,6 +764,7 @@ footer {
     margin-top: 25px;
     padding-bottom: 80px;
     width: 100%;
+    padding-left: 10px;
 }
 
 .input-button {
@@ -838,6 +850,7 @@ footer {
     border: 1px solid;
     padding: 4px 10px;
     margin-left: 5px;
+    text-decoration: none;
 }
 
 
