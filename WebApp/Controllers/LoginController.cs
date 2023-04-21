@@ -6,6 +6,6 @@ public class LoginController : Controller
 {
     public IActionResult Index()
     {
-        throw new NotImplementedException();
+        return View();
     }
 }

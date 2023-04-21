@@ -10,5 +10,8 @@ public class DataContext : DbContext
     }
     
     public DbSet<ProductEntity> Products { get; set; }
+
+    public DbSet<CommentEntity> Comments { get; set; }
+    public DbSet<ShowcaseEntity> Showcases { get; set; }
     
 }
