@@ -1,10 +1,22 @@
-@{
-    ViewData["Title"] = "Home";
-}
+@model HomeViewModel
 
-<partial name="~/Views/Shared/Partials/_Showcase.cshtml" />
-<partial name="~/Views/Shared/Partials/_CollectionGrid.cshtml" />
-<partial name="~/Views/Shared/Partials/_UpToSell.cshtml" />
-<partial name="~/Views/Shared/Partials/_NewProducts.cshtml" />
-<partial name="~/Views/Shared/Partials/_TopSelling.cshtml" />
+<partial name="~/Views/Shared/Partials/_Showcase.cshtml" model="Model.Showcase" />
+
+@{
+	ViewData["CollectionTitle"] = "Featured Products";
+}
+<partial name="~/Views/Shared/Partials/_CollectionGrid.cshtml" model="Model.Featured" />
+
+<partial name="~/Views/Shared/Partials/_SpecialOffer.cshtml" />
+
+@{
+	ViewData["CollectionTitle"] = "New Products";
+}
+<partial name="~/Views/Shared/Partials/_CollectionGrid.cshtml" model="Model.New" />
+
+@{
+	ViewData["CollectionTitle"] = "Popular Products";
+}
+<partial name="~/Views/Shared/Partials/_CollectionGrid.cshtml" model="Model.Popular" />
+
 <partial name="~/Views/Shared/Partials/_FooterInfo.cshtml" />

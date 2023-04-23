@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Filters;
 using WebApi.Models.DTO;
 using WebApi.Repositories;
 
 namespace WebApi.Controllers;
 
-[UseApiKey]
+
 [Route("api/[controller]")]
 [ApiController]
+[UseApiKey]
 public class CommentsController : ControllerBase
 {
     private readonly CommentRepo _commentRepo;

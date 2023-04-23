@@ -14,7 +14,7 @@ public class CommentService
     public async Task<HttpResponseMessage> PostCommentAsync(CommentDTO dto)
     {
         using var http = new HttpClient();
-        var result = await http.PostAsJsonAsync($"https://localhost:7052/api/Comments/Post?key={_config.GetValue<string>("ApiKey")}", dto);
+        var result = await http.PostAsJsonAsync($"https://localhost:7024/api/Comments/Post?key={_config.GetValue<string>("ApiKey")}", dto);
         return result!;
     }
 }

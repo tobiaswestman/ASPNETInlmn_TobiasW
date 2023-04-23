@@ -11,7 +11,7 @@
 
     <div class="container user-input-form">
 
-        <form asp-controller="Register" asp-action="Index" method="post" novalidate>
+        <form asp-controller="Contacts" asp-action="Index" method="post" novalidate>
 
             <h6 class="user-input-title">Come in Contact with US</h6>
 
@@ -31,6 +31,11 @@
                 <textarea asp-for="Comment" class="input-comment" placeholder="Comments"></textarea>
                 <span asp-validation-for="Comment"></span>
             </div>
+
+            @if (Model != null)
+            {
+                <span class="user-input-title">@Model.ConfirmString</span>
+            }
 
             <div class="user-input-item">
                 <button class="input-button" type="submit">Post Comments</button>

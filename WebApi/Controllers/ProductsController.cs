@@ -1,15 +1,16 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using WebApi.Filters;
-using WebApi.Models.dtos;
+using WebApi.Models.DTO;
 using WebApi.Services;
 
 namespace WebApi.Controllers
 {
-    [UseApiKey]
+
     [Route("api/[controller]")]
     [ApiController]
+    [UseApiKey]
     public class ProductsController : ControllerBase
     {
         private readonly ProductService _productService;
@@ -38,6 +39,28 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await _productService.GetByIdAsync(id));
+        }
+
+        [Authorize(Roles = "Admin, ProductManager")]
+        [Route("Add")]
+        [HttpPost]
+        public async Task<IActionResult> AddProduct(CreateProductDTO dto)
+        {
+            if (await _productService.CreateAsync(dto))
+                return Created("", null);
+
+            return BadRequest();
+        }
+
+        [Authorize(Roles = "Admin, ProductManager")]
+        [Route("Delete")]
+        [HttpPost]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            if (await _productService.DeleteAsync(id))
+                return Ok();
+
+            return BadRequest();
         }
     }
 }

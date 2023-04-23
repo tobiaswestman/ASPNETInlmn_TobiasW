@@ -1,11 +1,11 @@
-﻿using WebApp.Models.dtos;
+﻿using WebApi.Models.DTO;
 
 namespace WebApp.ViewModels;
 
 public class HomeViewModel
 {
-	public ShowcaseDTO ShowCase { get; set; } = null!;
-	public IEnumerable<ProductDTO> Featured { get; set; } = new List<ProductDTO>();
-	public IEnumerable<ProductDTO> Popular { get; set; } = new List<ProductDTO>();
-    public IEnumerable<ProductDTO> New { get; set; } = new List<ProductDTO>();
+	public ShowcaseDTO Showcase { get; set; } = null!;
+	public IEnumerable<Models.ProductModel> Featured { get; set; } = new List<Models.ProductModel>();
+	public IEnumerable<Models.ProductModel> Popular { get; set; } = new List<Models.ProductModel>();
+    public IEnumerable<Models.ProductModel> New { get; set; } = new List<Models.ProductModel>();
 }

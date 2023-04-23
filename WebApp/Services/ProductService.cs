@@ -1,4 +1,4 @@
-﻿using WebApp.Models.dtos;
+﻿using WebApp.Models;
 
 namespace WebApp.Services;
 
@@ -11,24 +11,24 @@ public class ProductService
         _config = config;
     }
 
-    public async Task<IEnumerable<ProductDTO>> GetAllProductsAsync()
+    public async Task<IEnumerable<ProductModel>> GetAllProductsAsync()
     {
         using var http = new HttpClient();
-        var result = await http.GetFromJsonAsync<IEnumerable<ProductDTO>>($"https://localhost:7052/api/Products/All?key={_config.GetValue<string>("ApiKey")}");
+        var result = await http.GetFromJsonAsync<IEnumerable<ProductModel>>($"https://localhost:7024/api/Products/All?key={_config.GetValue<string>("ApiKey")}");
         return result!;
     }
 
-    public async Task<ProductDTO> GetProductAsync(int id)
+    public async Task<ProductModel> GetProductAsync(int id)
     {
         using var http = new HttpClient();
-        var result = await http.GetFromJsonAsync<ProductDTO>($"https://localhost:7052/api/Products/Get?id={id}&key={_config.GetValue<string>("ApiKey")}");
+        var result = await http.GetFromJsonAsync<ProductModel>($"https://localhost:7024/api/Products/Get?id={id}&key={_config.GetValue<string>("ApiKey")}");
         return result!;
     }
 
-    public async Task<IEnumerable<ProductDTO>> GetByTagAsync(string tag)
+    public async Task<IEnumerable<ProductModel>> GetByTagAsync(string tag)
     {
         using var http = new HttpClient();
-        var result = await http.GetFromJsonAsync<IEnumerable<ProductDTO>>($"https://localhost:7052/api/Products/Tag?tag={tag}&key={_config.GetValue<string>("ApiKey")}");
+        var result = await http.GetFromJsonAsync<IEnumerable<ProductModel>>($"https://localhost:7024/api/Products/Tag?tag={tag}&key={_config.GetValue<string>("ApiKey")}");
         return result!;
     }
 

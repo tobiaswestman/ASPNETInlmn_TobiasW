@@ -31,7 +31,7 @@ namespace WebApp.Controllers
                     ModelState.Clear();
                     model = new ContactsViewModel()
                     {
-                        ConfirmString = "Your comment has been posted, and will be read soon."
+                        ConfirmString = "Your comment has been posted!"
                     };
                     return View(model);
                 }

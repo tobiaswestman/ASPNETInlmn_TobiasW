@@ -1,4 +1,4 @@
-@model ProductDTO
+@model ProductModel
 @{
     ViewData["Title"] = "Product Title";
 }
@@ -56,21 +56,21 @@
                     <div class="product-details-small-text mb-4">
                         <div class="mb-2 product-details-review-name">Diane</div>
                         <div>26th Jan 2021</div>
-                        <partial name="~/Views/Shared/PartialS/_StarRatingPartial.cshtml" model="5"></partial>
+                        <partial name="~/Views/Shared/PartialS/_StarRating.cshtml" model="5"></partial>
                         <div class="mt-3">Love these, I have them in several colours, really comfortable, you need to go at least one size smaller.</div>
                     </div>
 
                     <div class="product-details-small-text mb-4">
                         <div class="mb-2 product-details-review-name">Anonymous</div>
                         <div>25th Jan 2021</div>
-                        <partial name="~/Views/Shared/PartialS/_StarRatingPartial.cshtml" model="5"></partial>
+                        <partial name="~/Views/Shared/PartialS/_StarRating.cshtml" model="5"></partial>
                         <div class="mt-3">I like your joggers. I wear them for yoga, walking and gardening.They are nice to wear look good and are practical .</div>
                     </div>
 
                     <div class="product-details-small-text mb-4">
                         <div class="mb-2 product-details-review-name">Anonymous</div>
                         <div>23rd Jan 2021</div>
-                        <partial name="~/Views/Shared/PartialS/_StarRatingPartial.cshtml" model="4"></partial>
+                        <partial name="~/Views/Shared/PartialS/_StarRating.cshtml" model="4"></partial>
                         <div class="mt-3">I purchased the wrong size, otherwise not too bad</div>
                     </div>
                 </div>
@@ -84,12 +84,12 @@
             <div class="col-lg-6">
                 <h4>@Model.Title</h4>
 
-                <span class="product-details-small-text">SKU: @Model.SKU</span>
-                <span class="product-details-small-text">BRAND: @Model.Brand</span>
+                <span class="product-details-small-text">SKU: 12345670</span>
+                <span class="product-details-small-text">BRAND: Brand</span>
 
 
                 <div class="mt-3">
-                    <partial name="~/Views/Shared/Partials/_StarRatingPartial.cshtml" model="@Model.StarRating"></partial>
+                    <partial name="~/Views/Shared/Partials/_StarRating.cshtml" model="@Model.StarRating"></partial>
                 </div>
 
                 <div class="product-detail-price mt-3">@Model.Price kr</div>

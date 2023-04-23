@@ -1,11 +1,12 @@
-﻿@model ShowcaseDTO
+﻿@model WebApi.Models.DTO.ShowcaseDTO
+
 <section class="showcase">
     <div class="container">
         <div class="content">
             <div class="title-2">@Model.Title</div>
-            <div class="title-1">@Model.Ingress</div>
-            <div class="title-3">@Model.DeliveryText</div>
-            <a class="btn-theme" asp-controller="Home" asp-action="Index">@Model.ButtonText</a>
+            <div class="title-1">@Model.OfferTitle</div>
+            <div class="title-3">@Model.OfferDescription</div>
+            <a class="btn-theme" asp-controller="Home" asp-action="Index">SHOP NOW</a>
         </div>
         <img src="@Model.ImageUrl" alt="Picture not found" />
     </div>

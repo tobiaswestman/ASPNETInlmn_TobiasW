@@ -70,11 +70,22 @@
       <_ContentIncludedByDefault Remove="Views\Favorite\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Compare\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Cart\Index.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Account\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
+      <None Include="Views\Account\Index.cshtml" />
+      <None Include="Views\Account\Login.cshtml" />
+      <None Include="Views\Account\Logout.cshtml" />
+      <None Include="Views\Account\Register.cshtml" />
+      <None Include="Views\Account\Unauthorized.cshtml" />
+      <None Include="Views\Admin\AddProduct.cshtml" />
+      <None Include="Views\Admin\DeleteProduct.cshtml" />
+      <None Include="Views\Admin\Index.cshtml" />
       <None Include="wwwroot\css\site.scss" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\WebApi\WebApi.csproj" />
     </ItemGroup>
 
 </Project>

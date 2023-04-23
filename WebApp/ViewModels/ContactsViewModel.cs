@@ -5,13 +5,13 @@ namespace WebApp.ViewModels;
 
 public class ContactsViewModel
 {
-    [Required(ErrorMessage = "You need to write a name")]
+    [Required(ErrorMessage = "You must enter a name!")]
     public string Name { get; set; } = null!;
 
-    [EmailAddress(ErrorMessage = "Not a valid email")]
+    [EmailAddress(ErrorMessage = "You must enter a valid email!")]
     public string Email { get; set; } = null!;
 
-    [Required(ErrorMessage = "You can't send an empy comment")]
+    [Required(ErrorMessage = "You must enter a comment!")]
     public string Comment { get; set; } = null!;
     public string ConfirmString { get; set; } = "";
 
@@ -19,8 +19,8 @@ public class ContactsViewModel
     {
         return new CommentDTO
         {
-            CustomerName = viewModel.Name,
-            CustomerEmail = viewModel.Email,
+            Name = viewModel.Name,
+            Email = viewModel.Email,
             Comment = viewModel.Comment,
         };
     }

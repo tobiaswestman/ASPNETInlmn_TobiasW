@@ -1,15 +1,15 @@
+﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using WebApi.Models.Identity;
 
 namespace WebApi.Models.Entities;
 
 public class UserEntity
 {
-    [Key, ForeignKey(nameof(User))]
-    public string UserId { get; set; }
-    public string FirstName { get; set; }
-    public string LasName { get; set; }
+	[Key, ForeignKey(nameof(User))]
+	public string UserId { get; set; } = null!;
+	public string FirstName { get; set; } = null!;
+	public string LastName { get; set; } = null!;
 
-    public CustomUserIdentity User { get; set; }
+	public IdentityUser User { get; set; } = null!;
 }

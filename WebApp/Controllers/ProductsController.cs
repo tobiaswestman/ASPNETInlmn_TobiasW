@@ -1,16 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Services;
 
 namespace WebApp.Controllers;
 
 public class ProductsController : Controller
 {
-    public IActionResult Index()
+    private readonly ProductService _productService;
+
+    public ProductsController(ProductService productService)
     {
-        throw new NotImplementedException();
+        _productService = productService;
     }
 
-    public IActionResult Details()
+    public async Task<IActionResult> Details(int id)
     {
-        return View();
+        return View(await _productService.GetProductAsync(id));
     }
 }

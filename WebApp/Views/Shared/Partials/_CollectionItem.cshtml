@@ -1,4 +1,4 @@
-﻿@model ProductDTO;
+﻿@model ProductModel;
 
 <div class="item">
     <div class="image-section">
@@ -13,7 +13,6 @@
         </div>
     </div>
     <div class="body-section">
-        <div class="category">@Model.Category</div>
         <div class="name">@Model.Title</div>
         <partial name="~/Views/Shared/Partials/_StarRating.cshtml" model="@Model.StarRating" />
         <div class="price">@Model.Price kr</div>

@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using WebApi.Contexts;
 
-namespace WebApi.Repositories;
+namespace WebApi.Repositories.Base;
 
 public abstract class Repository<TEntity> where TEntity : class
 {
@@ -47,16 +46,10 @@ public abstract class Repository<TEntity> where TEntity : class
         return null!;
     }
 
-    public virtual async Task<TEntity> UpdateAsync(TEntity entity)
-    {
-        _dataContext.Set<TEntity>().Update(entity);
-        await _dataContext.SaveChangesAsync();
-        return entity;
-    }
-
     public virtual async Task DeleteAsync(TEntity entity)
     {
         _dataContext.Set<TEntity>().Remove(entity);
         await _dataContext.SaveChangesAsync();
     }
+
 }

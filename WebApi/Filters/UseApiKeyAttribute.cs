@@ -1,26 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace WebApi.Filters;
-
-public class UseApiKeyAttribute : Attribute, IAsyncActionFilter
+namespace WebApi.Filters
 {
-    public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+
+    public class UseApiKeyAttribute : Attribute, IAsyncActionFilter
     {
-        var config = context.HttpContext.RequestServices.GetService<IConfiguration>();
-        var apiKey = config!.GetValue<string>("ApiKey");
-
-        if (!context.HttpContext.Request.Query.TryGetValue("key", out var key))
+        public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            context.Result = new UnauthorizedResult();
-            return;
-        }
-        if (!apiKey!.Equals(key))
-        {
-            context.Result = new UnauthorizedResult();
-            return;
-        }
+            var config = context.HttpContext.RequestServices.GetService<IConfiguration>();
+            var apiKey = config!.GetValue<string>("ApiKey");
 
-        await next();
+            if (!context.HttpContext.Request.Query.TryGetValue("key", out var key))
+
+            {
+                context.Result = new BadRequestObjectResult("Missing or invalid api key");
+                return;
+            }
+
+            if (!apiKey!.Equals(key))
+            {
+                context.Result = new BadRequestObjectResult("Missing or invalid API key.");
+                return;
+            }
+
+            await next();
+        }
     }
 }

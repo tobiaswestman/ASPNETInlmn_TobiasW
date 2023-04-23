@@ -1,14 +1,16 @@
-
 using WebApp.Services;
+using WebApp.Helpers;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<ViewService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<CommentService>();
-
+builder.Services.AddScoped<ShowcaseService>();
+builder.Services.AddScoped<JwtTokenValidation>();
+builder.Services.AddScoped<AdminServices>();
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 

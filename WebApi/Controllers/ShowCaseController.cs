@@ -1,51 +1,28 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Filters;
-using WebApi.Models.DTO;
-using WebApi.Repositories;
 using WebApi.Services;
+using WebApi.Repositories;
 
 namespace WebApi.Controllers
 {
-    [UseApiKey]
+    
     [Route("api/[controller]")]
     [ApiController]
-    public class ShowCaseController : ControllerBase
+    [UseApiKey]
+    public class ShowcaseController : ControllerBase
     {
-        private readonly ShowCaseService _ShowCaseService;
+        private readonly ShowcaseRepo _showcaseRepo;
 
-        public ShowCaseController(ShowCaseService showCaseService)
+        public ShowcaseController(ShowcaseRepo showcaseRepo)
         {
-            _ShowCaseService = showCaseService;
+            _showcaseRepo = showcaseRepo;
         }
 
-        [Authorize(Roles = "admin, productChief")]
-        [Route("Add")]
-        [HttpPost]
-        public async Task<IActionResult> AddShowcase(CreateShowCaseDTO dto)
+        [HttpGet("Latest")]
+        public async Task<ActionResult> Latest()
         {
-            if (ModelState.IsValid)
-            {
-                if(await _ShowCaseService.RegisterAsync(dto))
-                {
-                    return Created("", null);
-                }
-                
-            }
-            return BadRequest();
+            return Ok(await _showcaseRepo.GetLatestShowcaseAsync());
         }
-        [Route("Get")]
-        [HttpGet]
-        public async Task<IActionResult> GetLatestShowcase()
-        {
-            return Ok(await _ShowCaseService.GetLatestShowCaseAsync());
-        }
-        [Route("All")]
-        [HttpGet]
-        public async Task<IActionResult> GetAllShowcases()
-        {
-            return Ok(await _ShowCaseService.GetAllShowCasesAsync());
-        }
+
     }
 }

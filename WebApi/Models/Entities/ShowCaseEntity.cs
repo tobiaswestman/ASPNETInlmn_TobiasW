@@ -1,19 +1,26 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WebApi.Models.DTO;
 
 namespace WebApi.Models.Entities;
 
 public class ShowcaseEntity
 {
-    [Key]
     public int Id { get; set; }
-    [MaxLength(50)]
+    public DateTime Date { get; set; }
     public string Title { get; set; } = null!;
-    [MaxLength(50)]
-    public string Ingress { get; set; } = null!;
-    [MaxLength(100)]
-    public string DeliveryText { get; set; } = null!;
-    [MaxLength(30)]
-    public string ButtonText { get; set; } = null!;
+    public string OfferDescription { get; set; } = null!;
+    public string OfferTitle { get; set; } = null!;
     public string ImageUrl { get; set; } = null!;
 
+
+    public static implicit operator ShowcaseDTO(ShowcaseEntity entity)
+    {
+        return new ShowcaseDTO
+        {
+            Title = entity.Title,
+            OfferDescription = entity.OfferDescription,
+            OfferTitle  = entity.OfferTitle,
+            ImageUrl = entity.ImageUrl,
+        };
+    }
 }
